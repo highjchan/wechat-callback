@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 TOKEN = os.environ.get('WECHAT_TOKEN', 'openclaw123')
-
+ENCODING_AES_KEY = os.environ.get('WECHAT_ENCODING_AES_KEY', 'kRo3sWXMFDIHibzp6JHDNRm1cB7cC8Tdkdb59K8q7jx')
 def verify_signature(token, timestamp, nonce, echostr):
     data = sorted([token, timestamp, nonce, echostr])
     return hashlib.sha1(''.join(data).encode()).hexdigest()
